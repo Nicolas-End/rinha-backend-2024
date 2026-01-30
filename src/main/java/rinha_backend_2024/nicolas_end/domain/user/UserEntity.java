@@ -6,8 +6,8 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.event.EventListener;
+
+
 
 @Getter
 @Setter
@@ -15,14 +15,22 @@ import org.springframework.context.event.EventListener;
 @Table(name = "Usuario")
 public class UserEntity {
 
-    @Autowired
-    private UserService userService;
+    public UserEntity (int id, int creditLimit, double balance, String password){
+        setId(id);
+        setCreditLimit(creditLimit);
+        setBalance(balance);
+        setPassword(password);
+
+    }
+    public UserEntity(){
+
+    }
 
     @Id
     private int id;
 
     @Column(nullable = false)
-    private int limit;
+    private int creditLimit;
 
     @Column(nullable = false)
     private double balance;
